@@ -13,7 +13,7 @@ class Report{
         this.status = report.status;
         this.note = report.note
     }
-}
+} //Report constructor
 
 class Candidate{
     constructor(candidate){
@@ -25,7 +25,7 @@ class Candidate{
         this.avatar = candidate.avatar || "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png";
 
     }
-}
+} // candidate constructor
 
 class Company{
     constructor(company){
@@ -33,28 +33,28 @@ class Company{
         this.name = company.name;
         this.email = company.email;
     }
-}
+} // company constructor
 
 const adaptCandidates = (candidates) => {
   const candidateArray = candidates.map((candidate) => {
         return new Candidate(candidate)
     })
     return candidateArray
-}
+} //function that makes candidates from http response
 
 const adaptCompanies = (companies) => {
     const companyArray = companies.map((company) => {
         return new Company(company)
     })
     return companyArray
-}
+} // function that makes companies from http response
 
 const adaptReports = (reports => {
     const reportsArray = reports.map((report) => {
         return new Report(report)
     })
     return reportsArray
-})
+}) //function that makes reports from http response
 
 
 
