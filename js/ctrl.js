@@ -6,13 +6,13 @@ const ctrlModule = ((module1, module2) => {
 
     const init = () => {
         const baseUrl = module1.baseUrl
-        fetchShows(baseUrl)
+        fetchCandidates(baseUrl + "candidates")
         registerCardsEvents();
         // search()
     }// function that is called in html file
 
 
-    fetchShows = (url) => {
+    fetchCandidates = (url) => {
         let request = new XMLHttpRequest();
         request.open('GET', url, true);
 
@@ -50,11 +50,11 @@ const ctrlModule = ((module1, module2) => {
         if (searchValue.value) {
             $row.empty() //clear row
             const filterCandidates = array.filter((element) => {
-                return (element.name.toLowerCase()).includes(searchValue.value);
+                return (element.name.toLowerCase()).includes(searchValue.value.toLowerCase());
             })
-
             const adaptedFilteredCandidates = module1.adaptCandidates(filterCandidates)// this is where candidates that includes search value are adapted
                  return adaptedFilteredCandidates
+
         } else if (!searchValue.value) {
             onSuccessHandler(candidateArray)
         } // if search input is empty again is called onSuccseshandlerFunction that returns all candidates
@@ -63,8 +63,8 @@ const ctrlModule = ((module1, module2) => {
     
     searchValue.addEventListener('keyup', function (event) {
         console.log(event); //it display error for some keys like backspace or escape bicause it is keyup event but nothing is writen in search input
-       
-        module2.displayFilteredCandidates(searchCandidates(candidateArray)) // function from uimodule that creates cards for filtered candidates
+        const filterCandidatesArray = searchCandidates(candidateArray);
+        module2.displayFilteredCandidates(filterCandidatesArray) // function from uimodule that creates cards for filtered candidates
    
     }) //adding eventlistener on search element that is trigerred on keyup
 
@@ -75,7 +75,7 @@ const ctrlModule = ((module1, module2) => {
             let candidateId = $(this).attr("data-candidate-id")
             console.log($(this));
             localStorage.setItem("candidateId", candidateId)
-            // location.assign('singlePage.html')
+            location.assign('singlePage.html')
         })
     } //function that add eventListener on cards when cards are created and that is the reason of using jquery, and loads page where single candidate is shown
 

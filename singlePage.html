@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Interview Reports</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <button class="loadCandidates">Candidates</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+   
+
+
+    <div class="container container-candidate">
+       
+    </div>
+    <div class="container">
+        <h1>Reports</h1>
+       <div class="row">
+        <table>
+            <thead>
+              <tr>
+                  <th>Company</th>
+                  <th>InterviewDate</th>
+                  <th>Status</th>
+              </tr>
+            </thead>
+    
+            <tbody class="body">
+              
+            </tbody>
+          </table>
+       </div>
+    </div>
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/uiSingleCan.js"></script>
+    <script src="./js/ctrlSingleCan.js"></script>
+    <script>
+        $(ctrlSingleModule.singlePageInit)
+     </script>
+</body>
+
+</html>

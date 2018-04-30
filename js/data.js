@@ -1,5 +1,5 @@
 const dataModule = (() => {
-const baseUrl = `http://localhost:3333/api/candidates`;
+const baseUrl = `http://localhost:3333/api/`;
 
 class Report{
     constructor(report){
@@ -13,6 +13,14 @@ class Report{
         this.status = report.status;
         this.note = report.note
     }
+    getInterviewDate(){
+        const date = new Date(this.interviewDate)
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const interviewDate = `${day}.${month}.${year}.`
+        return interviewDate;
+    }
 } //Report constructor
 
 class Candidate{
@@ -24,6 +32,14 @@ class Candidate{
         this.education = candidate.education;
         this.avatar = candidate.avatar || "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png";
 
+    }
+    getDob(){
+        const date = new Date(this.birthday)
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const dob = `${day}.${month}.${year}.`
+        return dob;
     }
 } // candidate constructor
 
@@ -41,6 +57,10 @@ const adaptCandidates = (candidates) => {
     })
     return candidateArray
 } //function that makes candidates from http response
+
+const adaptSingleCandidate = (candidate) => {
+    return new Candidate(candidate)
+} //function that returns single candidate
 
 const adaptCompanies = (companies) => {
     const companyArray = companies.map((company) => {
@@ -61,6 +81,7 @@ const adaptReports = (reports => {
 return {
   baseUrl,
   adaptCandidates,
+  adaptSingleCandidate,
   adaptCompanies,
   adaptReports, 
 }
