@@ -69,13 +69,15 @@ const adaptCompanies = (companies) => {
     return companyArray
 } // function that makes companies from http response
 
-const adaptReports = (reports => {
+const adaptReports = (reports) => {
     const reportsArray = reports.map((report) => {
         return new Report(report)
     })
     return reportsArray
-}) //function that makes reports from http response
-
+} //function that makes reports from http response
+ const adaptReport = (report) => {
+     return new Report(report)
+ }
 
 
 return {
@@ -83,7 +85,8 @@ return {
   adaptCandidates,
   adaptSingleCandidate,
   adaptCompanies,
-  adaptReports, 
+  adaptReports,
+  adaptReport 
 }
 
 
