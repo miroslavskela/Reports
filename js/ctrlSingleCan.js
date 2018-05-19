@@ -1,9 +1,8 @@
 const ctrlSingleModule = ((module1, module2) => {
 
+    const baseUrl = module1.baseUrl
     const singlePageInit = () => {
-        const baseUrl = module1.baseUrl
        fetchCandidate(`${baseUrl}/candidates/${localStorage.getItem('candidateId')}`)
-       fetchReports(`${baseUrl}/reports`)
        registerDetailsEvents()
     }// function that is called in html file
 
@@ -12,12 +11,14 @@ const ctrlSingleModule = ((module1, module2) => {
             $.get(url)
                 .done(onSuccessHandlerSingleCandidate)
                 .fail(onErrorHandler)
+                console.log("test1");
         } //http request jquery library
 
     fetchReports = (url) => {
         $.get(url)
         .done(onSuccessHandlerReports)
         .fail(onErrorHandler)
+        console.log("test2");
     }//http request jquery library
 
     fetchReport = (url) => {
@@ -27,11 +28,14 @@ const ctrlSingleModule = ((module1, module2) => {
     }//http request for single report jquery library
 
     onSuccessHandlerSingleCandidate = (response) => {
+        console.log(response);
         const adaptedSingleCandidate = module1.adaptSingleCandidate(response);
         module2.displaySingleCandidate(adaptedSingleCandidate)
+        fetchReports(`${baseUrl}/reports`)
     }//function that is called on successful http request
 
     onSuccessHandlerReports = (response) => {
+        console.log(response);
         const adaptedReports = module1.adaptReports(response)
         module2.displayReportView(adaptedReports)
        

@@ -8,6 +8,7 @@ const ctrlModule = ((module1, module2) => {
         const baseUrl = module1.baseUrl
         fetchCandidates(baseUrl + "candidates")
         registerCardsEvents();
+       
         // search()
     }// function that is called in html file
 
@@ -56,7 +57,7 @@ const ctrlModule = ((module1, module2) => {
                  return adaptedFilteredCandidates
 
         } else if (!searchValue.value) {
-            onSuccessHandler(candidateArray)
+            onSuccessHandler(candidateArray);
         } // if search input is empty again is called onSuccseshandlerFunction that returns all candidates
 
     } //function that filter candidates and return adapted candidates which includes search.value, parametar array is array of non-adapted candidates
