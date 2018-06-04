@@ -2,7 +2,7 @@ const ctrlModule = ((module1, module2) => {
 
     let candidateArray = null; //array of candidates used for filtering
     const searchValue = document.querySelector('.search') //search input
-    const $row = $('.row') //row element
+    const row = document.querySelector('.row') //row element
 
     const init = () => {
         const baseUrl = module1.baseUrl
@@ -25,18 +25,16 @@ const ctrlModule = ((module1, module2) => {
             } else {
                 onErrorHandler()
             }
-
         };
         request.onerror = function () {
             onErrorHandler()
         };
         request.send();
-
     } // http request
 
 
     onSuccessHandler = (response) => {
-        $row.empty()
+        row.innerHTML = "";
         const adaptedCandidates = module1.adaptCandidates(response);// function from data module that return adapted candidates
         module2.displayCandidate(adaptedCandidates) //function from ui module that creates card for each candidate
     } //function that is called on successful http request
@@ -44,17 +42,17 @@ const ctrlModule = ((module1, module2) => {
 
 
     onErrorHandler = () => {
-        module2.displayError
+        module2.displayError();
     } // function for failed http request
 
     searchCandidates = (array) => {
         if (searchValue.value) {
-            $row.empty() //clear row
+            row.innerHTML = ""; //clear row
             const filterCandidates = array.filter((element) => {
                 return (element.name.toLowerCase()).includes(searchValue.value.toLowerCase());
             })
             const adaptedFilteredCandidates = module1.adaptCandidates(filterCandidates)// this is where candidates that includes search value are adapted
-                 return adaptedFilteredCandidates
+             return adaptedFilteredCandidates
 
         } else if (!searchValue.value) {
             onSuccessHandler(candidateArray);
@@ -65,21 +63,23 @@ const ctrlModule = ((module1, module2) => {
     searchValue.addEventListener('keyup', function (event) {
         console.log(event); //it display error for some keys like backspace or escape bicause it is keyup event but nothing is writen in search input
         const filterCandidatesArray = searchCandidates(candidateArray);
-        module2.displayFilteredCandidates(filterCandidatesArray) // function from uimodule that creates cards for filtered candidates
+        module2.displayCandidate(filterCandidatesArray) // function from uimodule that creates cards for filtered candidates
    
     }) //adding eventlistener on search element that is trigerred on keyup
 
 
 
     const registerCardsEvents = () => {
-        $(document).on('click', '.candidate-card', function () {
-            let candidateId = $(this).attr("data-candidate-id")
-            console.log($(this));
-            localStorage.setItem("candidateId", candidateId)
-            location.assign('singlePage.html')
+        document.addEventListener('click', function(event){
+            if(event.target.className === "candidate-image"){
+                event.stopPropagation();
+                let eTarget = event.target;
+                let candidateId = eTarget.getAttribute('data-candidate-id');
+                localStorage.setItem("candidateId", candidateId)
+                location.assign('singlePage.html')
+            }
         })
-    } //function that add eventListener on cards when cards are created and that is the reason of using jquery, and loads page where single candidate is shown
-
+    }
 
 
     return {

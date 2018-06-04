@@ -53,7 +53,9 @@
     <script src="./js/ui.js"></script>
     <script src="./js/ctrl.js"></script>
     <script>
-        $(ctrlModule.init)
+       window.onload = function(){
+           ctrlModule.init();
+       }
      </script>
 </body>
 

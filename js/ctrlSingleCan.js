@@ -1,9 +1,10 @@
 const ctrlSingleModule = ((module1, module2) => {
-
+    const modal = document.querySelector('.containerModal')
     const baseUrl = module1.baseUrl
     const singlePageInit = () => {
        fetchCandidate(`${baseUrl}/candidates/${localStorage.getItem('candidateId')}`)
        registerDetailsEvents()
+       console.log(modal);
     }// function that is called in html file
 
 
@@ -11,7 +12,6 @@ const ctrlSingleModule = ((module1, module2) => {
             $.get(url)
                 .done(onSuccessHandlerSingleCandidate)
                 .fail(onErrorHandler)
-                console.log("test1");
         } //http request jquery library
 
     fetchReports = (url) => {
@@ -30,7 +30,7 @@ const ctrlSingleModule = ((module1, module2) => {
     onSuccessHandlerSingleCandidate = (response) => {
         console.log(response);
         const adaptedSingleCandidate = module1.adaptSingleCandidate(response); 
-        module2.displaySingleCandidate(adaptedSingleCandidate)
+        module2.displaySingleCandidate(adaptedSingleCandidate);
         fetchReports(`${baseUrl}/reports`)
     }//function that is called on successful http request
 
@@ -45,19 +45,28 @@ const ctrlSingleModule = ((module1, module2) => {
     onSuccessHandlerSingleReport = (response) => {
         const adaptedReport = module1.adaptReport(response)
         module2.displayReportDetail(adaptedReport)
-        $('.modal').show()
+        modal.className = "show";
+        
     }// function that is called on succesful http request that is triggered on click on detail button
 
    
     const registerDetailsEvents = () => {
         const baseUrl = module1.baseUrl
-        $(document).on('click', '.waves-effect', function(event){
-        event.preventDefault()
-        let reportId = $(this).attr("data-report-id")
-        fetchReport(`${baseUrl}/reports/${reportId}`)  
+        document.addEventListener('click', function(event){
+            if(event.target.className === "waves-effect waves-light btn modal-trigger"){
+                event.stopPropagation();
+                let reportTarget = event.target;
+                let reportId = reportTarget.getAttribute('data-report-id');
+                console.log(reportId);
+                fetchReport(`${baseUrl}/reports/${reportId}`);  
+
+            } 
     }) 
-        $(document).on('click', '.close', function(event){
-            $('.modal').hide()
+        document.addEventListener('click', function(event){
+            if(event.target.className === "close");
+            event.stopPropagation();
+            modal.className = "hide";
+            modal.innerHTML ="";
         } 
     )} //function that register click events on detail button and on close button
 
