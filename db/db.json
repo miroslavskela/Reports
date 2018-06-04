@@ -83,28 +83,6 @@
   ],
   "reports": [
     {
-      "id": 33060290,
-      "candidateId": 9451057,
-      "candidateName": "Zula Feeney",
-      "companyId": 92859858,
-      "companyName": "Volkman - Schimmel",
-      "interviewDate": "Fri Jan 10 2018 20:13:29 GMT+0100 (CET)",
-      "phase": "hr",
-      "status": "passed",
-      "note": "Rerum accusantium expedita consequatur quo non error et. Animi consequatur magnam et impedit. Beatae et voluptatem labore repudiandae labore totam ut esse. Cum quidem in nobis et necessitatibus reiciendis officia voluptas. Quia aut dignissimos totam ut. Ut quo non nam quaerat consequatur quo qui."
-    },
-    {
-      "id": 33060290,
-      "candidateId": 9451057,
-      "candidateName": "Zula Feeney",
-      "companyId": 92859858,
-      "companyName": "Volkman - Schimmel",
-      "interviewDate": "Fri Jan 10 2018 20:13:29 GMT+0100 (CET)",
-      "phase": "hr",
-      "status": "passed",
-      "note": "Rerum accusantium expedita consequatur quo non error et. Animi consequatur magnam et impedit. Beatae et voluptatem labore repudiandae labore totam ut esse. Cum quidem in nobis et necessitatibus reiciendis officia voluptas. Quia aut dignissimos totam ut. Ut quo non nam quaerat consequatur quo qui."
-    },
-    {
       "id": 61646703,
       "candidateId": 66318927,
       "candidateName": "Lourdes Kuhn",
@@ -202,6 +180,61 @@
       "phase": "CV",
       "status": "passed",
       "note": "dfsdfd"
+    },
+    {
+      "id": 8577,
+      "candidateName": "Zula Feeney",
+      "candidateId": 9451057,
+      "companyName": "Wintheiser - Padberg",
+      "companyId": 34149463,
+      "interviewDate": "2018-05-16",
+      "phase": "CV",
+      "status": "passed",
+      "note": "lorem ipsum"
+    },
+    {
+      "id": 42379,
+      "candidateName": "Zula Feeney",
+      "candidateId": 9451057,
+      "companyName": "Konopelski - Romaguera",
+      "companyId": 35251209,
+      "interviewDate": "2018-05-15",
+      "phase": "CV",
+      "status": "passed",
+      "note": ""
+    },
+    {
+      "id": 72544,
+      "candidateName": "Mireya Beahan IV",
+      "candidateId": 88648435,
+      "companyName": "Krajcik Inc",
+      "companyId": 11081915,
+      "interviewDate": "2018-05-23",
+      "phase": "CV",
+      "status": "passed",
+      "note": ""
+    },
+    {
+      "id": 9065,
+      "candidateName": "Zula Feeney",
+      "candidateId": 9451057,
+      "companyName": "Krajcik Inc",
+      "companyId": 11081915,
+      "interviewDate": "2018-05-16",
+      "phase": "CV",
+      "status": "passed",
+      "note": "ghfthg"
+    },
+    {
+      "id": 73803,
+      "candidateName": "Mireya Beahan IV",
+      "candidateId": 88648435,
+      "companyName": "Krajcik Inc",
+      "companyId": 11081915,
+      "interviewDate": "2018-05-28",
+      "phase": "CV",
+      "status": "passed",
+      "note": "sdgsdgdf"
     }
   ]
 }

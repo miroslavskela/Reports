@@ -29,7 +29,7 @@ const ctrlSingleModule = ((module1, module2) => {
 
     onSuccessHandlerSingleCandidate = (response) => {
         console.log(response);
-        const adaptedSingleCandidate = module1.adaptSingleCandidate(response);
+        const adaptedSingleCandidate = module1.adaptSingleCandidate(response); 
         module2.displaySingleCandidate(adaptedSingleCandidate)
         fetchReports(`${baseUrl}/reports`)
     }//function that is called on successful http request
