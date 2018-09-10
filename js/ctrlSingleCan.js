@@ -45,6 +45,7 @@ const ctrlSingleModule = ((module1, module2) => {
     onSuccessHandlerSingleReport = (response) => {
         const adaptedReport = module1.adaptReport(response)
         module2.displayReportDetail(adaptedReport)
+        
         modal.className = "show";
         
     }// function that is called on succesful http request that is triggered on click on detail button
